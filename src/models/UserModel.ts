@@ -36,7 +36,14 @@ const UserSchema: Schema = new Schema({
           type: [Number],
           required: true
         }
+      },
+      notificationtoken: {
+          type: String,
+      },
+      JWTtoken: {
+          type: String
       }
+
 }, {
     collection: 'User',
     versionKey: false,

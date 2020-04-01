@@ -1,5 +1,6 @@
 import * as express from 'express';
 import UserRouter from './UserRouter';
+import NotificationRouter from './NotificationRouter';
 import { IServer } from '../interfaces/ServerInterface';
 
 import Auth from "../services/JwtToken";
@@ -14,5 +15,6 @@ export default class Routes {
         server.app.use('/', router);
         server.app.use('/api/verify', Auth.verifyRequestAuth);
         server.app.use('/api/users', new UserRouter().router);
+        server.app.use('/api/notifications', new NotificationRouter().router);
     }
 }

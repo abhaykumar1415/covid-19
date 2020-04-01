@@ -10,11 +10,11 @@ export interface IUserModel extends Document {
     createdAt ? : Date;
     updatedAt ? : Date;
     name: string;
-    email: string;
+    phone: string;
 }
 
 const UserSchema: Schema = new Schema({
-    email: {
+    phone: {
         type: String,
         required: true
     },
@@ -22,6 +22,21 @@ const UserSchema: Schema = new Schema({
         type: String,
         required: true
     },
+    invitedTo: [{
+        type: Schema.Types.ObjectId,
+        ref: 'UserModel'
+      }],
+    geolocation: { //https://mongoosejs.com/docs/geojson.html
+        type: {
+          type: String, // Don't do `{ location: { type: String } }`
+          enum: ['Point'], // 'location.type' must be 'Point'
+          required: true
+        },
+        coordinates: { //Note that longitude comes first in a GeoJSON coordinate array, not latitude.
+          type: [Number],
+          required: true
+        }
+      }
 }, {
     collection: 'User',
     versionKey: false,

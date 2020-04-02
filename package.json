@@ -9,12 +9,14 @@
         "server": "tsc && npm run build && nodemon ./build/index.js",
         "start": "node ./build/index.js",
         "ts:watch": "tsc -w",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "apidoc": "apidoc -i src/ -o apidoc/"
     },
     "files": [
         "src"
     ],
     "dependencies": {
+        "apidoc": "^0.20.1",
         "bcrypt": "^3.0.4",
         "bcrypt-nodejs": "^0.0.3",
         "body-parser": "1.18.2",

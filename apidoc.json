@@ -1,7 +1,7 @@
 {
   "name": "API-DOC",
   "version": "0.0.1",
-  "description": "Api documentation for My-Project",
+  "description": "Api documentation for Covid-19",
   "title": "API Doc",
-  "url" : "http://localhost:3000/api"
+  "url" : "http://localhost:3030/api"
 }

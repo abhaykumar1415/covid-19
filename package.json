@@ -28,6 +28,7 @@
         "express": "4.16.2",
         "express-custom-responses": "^1.0.0",
         "express-winston": "^2.5.1",
+        "firebase-admin": "^8.10.0",
         "helmet": "3.9.0",
         "http-errors": "^1.6.3",
         "jsonwebtoken": "^8.5.1",

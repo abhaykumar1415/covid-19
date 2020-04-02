@@ -53,11 +53,8 @@ public getAllUsers(req: express.Request, res: express.Response, next: express.Ne
  *
  * @apiParam {Number} id Users unique ID.
  *  
- * @apiSuccess {Array} bookmark Array of saved photos of each User.
- * @apiSuccess {Array} media Array of saved photos from Users.
  * @apiSuccess {Number} mobile Mobile number of User.
  * @apiSuccess {String} name Name of User.
- * @apiSuccess {String} event ObjectId of event. 
  * 
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK

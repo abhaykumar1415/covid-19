@@ -11,6 +11,7 @@ export interface IUserModel extends Document {
     updatedAt ? : Date;
     name: string;
     mobile: string;
+    health: string;
     invitedTo: Array<Object>;
     geolocation: Array<Object>;
     notificationtoken: string;
@@ -25,6 +26,9 @@ const UserSchema: Schema = new Schema({
     name: {
         type: String,
         required: true
+    },
+    health: {
+        type: String,
     },
     invitedTo: [{
         type: Schema.Types.ObjectId,

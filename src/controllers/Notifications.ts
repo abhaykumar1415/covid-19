@@ -5,31 +5,44 @@ import NotificationValidation from '../services/validations/NotificationValidati
 
 class NotificationController {
 
-    /**
-     * @api {get} /notifications Get all Notifications
-     * @apiName GetNotification
-     * @apiGroup Notification
-     *
-     * @apiParam {Number} id Notifications unique ID.
-     *
-     * @apiSuccess {String} title title of the Notification.
-     * @apiSuccess {String} description  description of the Notification.
-     *
-     * @apiSuccessExample Success-Response:
-     *     HTTP/1.1 200 OK
-     *     {
-     *       "title": "John",
-     *       "description": "Doe"
-     *     }
-     *
-     * @apiError NotificationNotFound The id of the Notification was not found.
-     *
-     * @apiErrorExample Error-Response:
-     *     HTTP/1.1 404 Not Found
-     *     {
-     *       "error": "NotificationNotFound"
-     *     }
-     */
+/**
+ * @api {get} /notifications Get all Notifications
+ * @apiName GetNotification
+ * @apiGroup Notification
+ *
+ * @apiParam {Number} id Notifications unique ID.
+ *
+ * @apiSuccess {String} title Title of the Notification.
+ * @apiSuccess {String} description  Description of the Notification.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *   [
+ *       {
+ *           "_id": "5e84dc858b4943dd1d2bd600",
+ *           "title": "CURFEW",
+ *           "description": "It's not just day 08 of the 21-day India lockdown.",
+ *           "createdAt": "2020-04-01T18:25:09.553Z",
+ *           "updatedAt": "2020-04-01T18:25:09.553Z"
+ *       },
+ *       {
+ *           "_id": "5e84dcb28b4943dd1d2bd601",
+ *           "title": "covid-19",
+ *           "description": "It's not just day 08 of the 21-day India lockdown.",
+ *           "createdAt": "2020-04-01T18:25:54.054Z",
+ *           "updatedAt": "2020-04-01T18:25:54.054Z"
+ *       }
+ *   ]
+ *
+ *
+ * @apiError NotificationNotFound The id of the Notification was not found.
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 404 Not Found
+ *     {
+ *       "error": "NotificationNotFound"
+ *     }
+ */
 public getAllNotifications(req: express.Request, res: express.Response, next: express.NextFunction): void {
   NotificationModel
     .find({})
@@ -52,18 +65,18 @@ public getAllNotifications(req: express.Request, res: express.Response, next: ex
  *
  * @apiParam {Number} id Notifications unique ID.
  *  
- * @apiSuccess {String} title title of Notification.
- * @apiSuccess {String} description description of event. 
+ * @apiSuccess {String} title Title of Notification.
+ * @apiSuccess {String} description Description of event. 
  * 
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  *     {
- *          "_id": "5dee22d0bf5c9c1ae44cab26",
- *           "title": "abcd",
- *           "description": "corona virus covid-19",
- *           "createdAt": "2019-12-09T10:32:48.116Z",
- *           "updatedAt": "2019-12-12T12:17:27.326Z"
- *      },
+ *          "_id": "5e84dc858b4943dd1d2bd600",
+ *          "title": "corona-covid-19",
+ *          "description": "Maharashtra CM Uddhav Thackeray announced the curfew on Monday evening after holding meetings with divisional commissioners, collectors, IPS officers & other senior officials in the state via video conferencing.",
+ *          "createdAt": "2020-04-01T18:25:09.553Z",
+ *          "updatedAt": "2020-04-01T18:40:42.222Z"
+ *      } 
  *@apiError NotificationNotFound The id of the Notification was not found.
  *
  * @apiErrorExample Error-Response:
@@ -97,15 +110,12 @@ public getNotification(req: express.Request, res: express.Response, next: expres
  * @apiName Update one Notification
  * @apiGroup Notification
  *
- * @apiParam {Number} id Medias unique ID.
- *
+ * @apiParam {Number} id Notifications unique ID.
+ * 
  *        {
- *               "_id": "5dee22d0bf5c9c1ae44cab26",
- *               "title": "text 3",
- *               "description": "hey hiiii",
- *               "createdAt": "2019-12-09T10:32:48.116Z",
- *               "updatedAt": "2019-12-12T12:17:27.326Z"
- *        },
+ *            "title": "covid- 19",
+ *            "description": "COVID-19 pandemic is spreading, an outbreak is “looking imminent",
+ *        }
  *
  * @apiSuccess {String} success Success true status for update.
  *
@@ -128,7 +138,7 @@ public getNotification(req: express.Request, res: express.Response, next: expres
 public updateNotification(req: express.Request, res: express.Response, next: express.NextFunction): void {
 
     let payload = NotificationValidation.validatePutRequest(req.body);
-
+    console.log("payload",payload);
     if (payload) {
       NotificationModel.update(req.params,req.body)
       .then((update) => {
@@ -155,19 +165,19 @@ public updateNotification(req: express.Request, res: express.Response, next: exp
  *
  * @apiParam {Number} id Notifications unique ID.
  *
- * @apiSuccess {String} title title of Notification.
- * @apiSuccess {String} description description of Notification.
+ * @apiSuccess {String} title Title of Notification.
+ * @apiSuccess {String} description Description of Notification.
  *
  *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  *         {
- *               "_id": "5de9fc33e1b74048f92922ab",
- *               "title": "text 4",
- *               "description": "covid 19 pune",
- *               "createdAt": "2019-12-06T06:58:59.610Z",
- *               "updatedAt": "2019-12-06T06:58:59.610Z"
- *           }
+ *            "_id": "5e84de067ae5afdd6b0e38a6",
+ *            "title": "curfew covid- 19",
+ *            "description": "It's not just day 08 of the 21-day India lockdown.",
+ *            "createdAt": "2020-04-01T18:31:34.628Z",
+ *            "updatedAt": "2020-04-01T18:31:34.628Z"
+ *         }
  * @apiError NotificationNotFound The id of the Notification was not found.
  *
  * @apiErrorExample Error-Response:

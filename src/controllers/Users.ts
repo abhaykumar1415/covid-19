@@ -12,17 +12,48 @@ class UserController {
    *
    * @apiParam {Number} id Users unique ID.
    *
-   * @apiSuccess {String} firstname Firstname of the User.
-   * @apiSuccess {Number} number number of the User.
-   * @apiSuccess {Array} invitedTo invitedTo of the User.
-   * @apiSuccess {Number} notificationtoken notificationtoken of the User.
+   * @apiSuccess {String} name  Name  of the User.
+   * @apiSuccess {Number} mobile  Mobile Number of the User.
+   * @apiSuccess {String} health  Health  of the User.
+   * @apiSuccess {Array} geolocation   Geolocation of the User.
+   * @apiSuccess {String} notificationtoken  Notificationtoken of the User.
+   * @apiSuccess {String} jwttoken  JWTtoken of the User.
+   * 
    * 
    * @apiSuccessExample Success-Response:
    *     HTTP/1.1 200 OK
-   *     {
-   *       "firstname": "John",
-   *       "number": "9876543526"
-   *     }
+   *     [
+   *           {
+   *               "invitedTo": [],
+   *             "geolocation": {
+   *                "type": "Point",
+   *                "coordinates":[1,2]
+   *             },  
+   *               "_id": "5e84c96f34edaed699dfde8c",
+   *               "mobile": "9999999999",
+   *               "name": "Abhay",
+   *               "createdAt": "2020-04-01T17:03:43.480Z",
+   *               "updatedAt": "2020-04-02T12:29:30.976Z",
+   *               "JWTtoken": "fdgbdshjkjhngfv",
+   *               "notificationtoken": "asdfgjhgfdbnyuhg",
+   *               "health": "sick"
+   *           }
+   *           {
+   *               "invitedTo": [],
+   *             "geolocation": {
+   *                "type": "Point",
+   *                "coordinates":[3,4]
+   *             }, 
+   *              "_id": "5e84c7bae5f9a6d653759b02",
+   *               "mobile": "9823463727",
+   *               "name": "Mayuri",
+   *               "createdAt": "2020-04-01T16:56:26.688Z",
+   *               "updatedAt": "2020-04-01T16:56:26.688Z"
+   *               "JWTtoken": "asdvgfdgrhds",
+   *               "notificationtoken": "agesaderthfdf",
+   *               "health": "Fine"
+   *           }
+   *       ]              
    *
    * @apiError UserNotFound The id of the User was not found.
    *
@@ -33,6 +64,7 @@ class UserController {
    *     }
    */
 public getAllUsers(req: express.Request, res: express.Response, next: express.NextFunction): void {
+  
   UserModel
     .find({})
     .then((data)=> {
@@ -53,18 +85,30 @@ public getAllUsers(req: express.Request, res: express.Response, next: express.Ne
  *
  * @apiParam {Number} id Users unique ID.
  *  
- * @apiSuccess {Number} mobile Mobile number of User.
- * @apiSuccess {String} name Name of User.
+ * @apiSuccess {String} name  Name  of the User.
+ * @apiSuccess {Number} mobile  Mobile Number of the User.
+ * @apiSuccess {String} health  Health  of the User.
+ * @apiSuccess {Array} geolocation   Geolocation of the User.
+ * @apiSuccess {String} notificationtoken  Notificationtoken of the User.
+ * @apiSuccess {String} jwttoken  JWTtoken of the User.
  * 
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
- *     {
- *          "_id": "5dee22d0bf5c9c1ae44cab26",
- *           "mobile": "9284274128",
- *           "name": "shivam papat",
- *           "createdAt": "2019-12-09T10:32:48.116Z",
- *           "updatedAt": "2019-12-12T12:17:27.326Z"
- *      },
+ *         {
+ *             "invitedTo":[],
+ *             "geolocation": {
+ *                "type": "Point",
+ *                "coordinates":[1,2]
+ *             }, 
+ *             "_id": "5e84c96f34edaed699dfde8c",
+ *             "mobile": "9999999999",
+ *             "name": "Abhay",
+ *             "health": "sick",
+ *             "createdAt": "2020-04-01T17:03:43.480Z",
+ *             "updatedAt": "2020-04-02T12:21:55.626Z",
+ *             "JWTtoken": "fdgbdshjkjhngfv",
+ *             "notificationtoken": "asdfgjhgfdbnyuhg"
+ *         }
  *@apiError UserNotFound The id of the User was not found.
  *
  * @apiErrorExample Error-Response:
@@ -97,15 +141,19 @@ public getUser(req: express.Request, res: express.Response, next: express.NextFu
  * @apiName Update one User
  * @apiGroup User
  *
- * @apiParam {Number} id Medias unique ID.
+ * @apiParam {Number} id Users unique ID.
  *
- *        {
- *               "_id": "5dee22d0bf5c9c1ae44cab26",
- *               "mobile": "9284274128",
- *               "name": "shivam papat",
- *               "createdAt": "2019-12-09T10:32:48.116Z",
- *               "updatedAt": "2019-12-12T12:17:27.326Z"
- *        },
+ *       {
+ *             "mobile": "9999999999",
+ *             "name": "Abhay",
+ *             "geolocation": {
+ *                "type": "Point",
+ *                "coordinates":[1,2]
+ *             },
+ *             "health": "sick",
+ *             "notificationtoken":"asdfgjhgfdbnyuhg",
+ *             "JWTtoken":"fdgbdshjkjhngfv"
+ *       }
  *
  * @apiSuccess {String} success Success true status for update.
  *
@@ -130,6 +178,7 @@ public updateUser(req: express.Request, res: express.Response, next: express.Nex
   let payload = UserValidation.validatePutRequest(req.body);
 
   if (payload) {
+    console.log("req.body",req.body);
     UserModel.update(req.params,req.body)
     .then((update) => {
         res.status(200).json({ success: true });
@@ -161,12 +210,16 @@ public updateUser(req: express.Request, res: express.Response, next: express.Nex
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  *         {
- *               "_id": "5de9fc33e1b74048f92922ab",
- *               "mobile": 9284274128,
- *               "name": "Mayuri M Papat",
- *               "createdAt": "2019-12-06T06:58:59.610Z",
- *               "updatedAt": "2019-12-06T06:58:59.610Z"
- *           }
+ *             "invitedTo":[],
+ *             "geolocation":{
+ *             "coordinates":[]
+ *             },
+ *             "_id": "5e85e75aa2a97905f8c97de1",
+ *             "mobile": "9876567867",
+ *             "name": "Abhishek",
+ *             "createdAt": "2020-04-02T13:23:38.091Z",
+ *             "updatedAt": "2020-04-02T13:23:38.091Z"
+ *          }
  * @apiError UserNotFound The id of the User was not found.
  *
  * @apiErrorExample Error-Response:

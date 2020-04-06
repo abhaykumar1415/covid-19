@@ -285,7 +285,14 @@ define({ "api": [
             "description": "<p>Users unique ID.</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request-Example",
+          "content": "        {\n           \"mobile\": \"9945362788\",\n\t          \"name\": \"sagar\"\n        }",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "fields": {
@@ -308,8 +315,8 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n    {\n        \"invitedTo\":[],\n        \"geolocation\":{\n        \"coordinates\":[]\n        },\n        \"_id\": \"5e85e75aa2a97905f8c97de1\",\n        \"mobile\": \"9876567867\",\n        \"name\": \"Abhishek\",\n        \"createdAt\": \"2020-04-02T13:23:38.091Z\",\n        \"updatedAt\": \"2020-04-02T13:23:38.091Z\"\n     }",
+          "title": "Success-Responce:",
+          "content": "{\n      \"_id\": \"5e8ac99e3a397520b0fb0d21\",\n      \"invitedTo\":[],\n      \"geolocation\":{ \"coordinates\":[]  },\n      \"mobile\": \"9945362788\",\n      \"name\": \"vaibhav\",\n      \"createdAt\": \"2020-04-06T06:18:06.835Z\",\n      \"updatedAt\": \"2020-04-06T06:18:06.835Z\"\n}",
           "type": "json"
         }
       ]

@@ -141,6 +141,7 @@ public getUser(req: express.Request, res: express.Response, next: express.NextFu
  * @apiName Update one User
  * @apiGroup User
  *
+ * 
  * @apiParam {Number} id Users unique ID.
  *
  *       {
@@ -205,20 +206,23 @@ public updateUser(req: express.Request, res: express.Response, next: express.Nex
  * @apiSuccess {Number} mobile Mobile number of user.
  * @apiSuccess {String} name Name of user.
  *
- *
- * @apiSuccessExample Success-Response:
- *     HTTP/1.1 200 OK
+ * @apiParamExample {json} Request-Example
  *         {
- *             "invitedTo":[],
- *             "geolocation":{
- *             "coordinates":[]
- *             },
- *             "_id": "5e85e75aa2a97905f8c97de1",
- *             "mobile": "9876567867",
- *             "name": "Abhishek",
- *             "createdAt": "2020-04-02T13:23:38.091Z",
- *             "updatedAt": "2020-04-02T13:23:38.091Z"
- *          }
+ *            "mobile": "9945362788",
+ *	          "name": "sagar"
+ *         }
+ * 
+ * @apiSuccessExample Success-Responce:
+ *      {
+ *            "_id": "5e8ac99e3a397520b0fb0d21",
+ *            "invitedTo":[],
+ *            "geolocation":{ "coordinates":[]  },
+ *            "mobile": "9945362788",
+ *            "name": "vaibhav",
+ *            "createdAt": "2020-04-06T06:18:06.835Z",
+ *            "updatedAt": "2020-04-06T06:18:06.835Z"
+ *      } 
+ * 
  * @apiError UserNotFound The id of the User was not found.
  *
  * @apiErrorExample Error-Response:
@@ -232,8 +236,8 @@ public createUser(req: express.Request, res: express.Response, next: express.Nex
   // Auth.verifyRequestAuth(req,res,next);
      
   let createPayload = UserValidation.validatePostRequest(req.body);
-  console.log("payload",createPayload);
-    if(createPayload){
+
+  if(createPayload){
       UserModel
         .findOne({mobile: req.body.mobile}).lean()
         .then(user=>{

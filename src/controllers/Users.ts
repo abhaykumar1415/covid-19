@@ -68,7 +68,7 @@ public getAllUsers(req: express.Request, res: express.Response, next: express.Ne
   UserModel
     .find({})
     .then((data)=> {
-      res.status(200).json({data});
+      res.status(200).json({ data });
     })
     .catch((error: Error) => {
       res.status(500).json({
@@ -176,7 +176,6 @@ public getUser(req: express.Request, res: express.Response, next: express.NextFu
 public updateUser(req: express.Request, res: express.Response, next: express.NextFunction): void {
     
   let payload = UserValidation.validatePutRequest(req.body);
-
   if (payload) {
     console.log("req.body",req.body);
     UserModel.update(req.params,req.body)
@@ -233,23 +232,31 @@ public createUser(req: express.Request, res: express.Response, next: express.Nex
   // Auth.verifyRequestAuth(req,res,next);
      
   let createPayload = UserValidation.validatePostRequest(req.body);
-  
+  console.log("payload",createPayload);
     if(createPayload){
       UserModel
-        .create({
-          mobile: req.body.mobile,
-          name: req.body.name
+        .findOne({mobile: req.body.mobile}).lean()
+        .then(user=>{
+            if(user){
+              res.status(200).json({ user });
+            }else{
+              UserModel
+              .create({
+                mobile: req.body.mobile,
+                name: req.body.name
+              })
+              .then((data) => {
+                res.status(200).json({ data });
+              })
+              .catch((error: Error) => {
+                res.status(500).json({
+                  error: error.message,
+                  errorStack: error.stack
+                });
+                next(error);
+              });
+            }
         })
-        .then((data) => {
-          res.status(200).json({ data });
-        })
-        .catch((error: Error) => {
-          res.status(500).json({
-            error: error.message,
-            errorStack: error.stack
-          });
-          next(error);
-        });
     }
     else{
       res.status(200).json({ success: false, message: 'Invalid data' });

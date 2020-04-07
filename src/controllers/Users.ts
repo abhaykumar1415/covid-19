@@ -240,9 +240,9 @@ public createUser(req: express.Request, res: express.Response, next: express.Nex
   if(createPayload){
       UserModel
         .findOne({mobile: req.body.mobile}).lean()
-        .then(user=>{
-            if(user){
-              res.status(200).json({ user });
+        .then(data=>{
+            if(data){
+              res.status(200).json({ data });
             }else{
               UserModel
               .create({

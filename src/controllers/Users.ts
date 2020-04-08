@@ -219,6 +219,7 @@ public updateUser(req: express.Request, res: express.Response, next: express.Nex
  *            "geolocation":{ "coordinates":[]  },
  *            "mobile": "9945362788",
  *            "name": "vaibhav",
+ *            "health": "fine",
  *            "createdAt": "2020-04-06T06:18:06.835Z",
  *            "updatedAt": "2020-04-06T06:18:06.835Z"
  *      } 
@@ -247,7 +248,8 @@ public createUser(req: express.Request, res: express.Response, next: express.Nex
               UserModel
               .create({
                 mobile: req.body.mobile,
-                name: req.body.name
+                name: req.body.name,
+                health: 'fine'
               })
               .then((data) => {
                 res.status(200).json({ data });

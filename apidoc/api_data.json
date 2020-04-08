@@ -316,7 +316,7 @@
       "examples": [
         {
           "title": "Success-Responce:",
-          "content": "{\n      \"_id\": \"5e8ac99e3a397520b0fb0d21\",\n      \"invitedTo\":[],\n      \"geolocation\":{ \"coordinates\":[]  },\n      \"mobile\": \"9945362788\",\n      \"name\": \"vaibhav\",\n      \"createdAt\": \"2020-04-06T06:18:06.835Z\",\n      \"updatedAt\": \"2020-04-06T06:18:06.835Z\"\n}",
+          "content": "{\n      \"_id\": \"5e8ac99e3a397520b0fb0d21\",\n      \"invitedTo\":[],\n      \"geolocation\":{ \"coordinates\":[]  },\n      \"mobile\": \"9945362788\",\n      \"name\": \"vaibhav\",\n      \"health\": \"fine\",\n      \"createdAt\": \"2020-04-06T06:18:06.835Z\",\n      \"updatedAt\": \"2020-04-06T06:18:06.835Z\"\n}",
           "type": "json"
         }
       ]

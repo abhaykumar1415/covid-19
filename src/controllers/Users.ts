@@ -13,7 +13,7 @@ class UserController {
    * @apiParam {Number} id Users unique ID.
    *
    * @apiSuccess {String} name  Name  of the User.
-   * @apiSuccess {Number} mobile  Mobile Number of the User.
+   * @apiSuccess {Number} deviceId  deviceId Number of the User.
    * @apiSuccess {String} health  Health  of the User.
    * @apiSuccess {Array} geolocation   Geolocation of the User.
    * @apiSuccess {String} notificationtoken  Notificationtoken of the User.
@@ -30,7 +30,7 @@ class UserController {
    *                "coordinates":[1,2]
    *             },  
    *               "_id": "5e84c96f34edaed699dfde8c",
-   *               "mobile": "9999999999",
+   *               "deviceId": "dthjgj123",
    *               "name": "Abhay",
    *               "createdAt": "2020-04-01T17:03:43.480Z",
    *               "updatedAt": "2020-04-02T12:29:30.976Z",
@@ -45,7 +45,7 @@ class UserController {
    *                "coordinates":[3,4]
    *             }, 
    *              "_id": "5e84c7bae5f9a6d653759b02",
-   *               "mobile": "9823463727",
+   *               "deviceId": "dfghjhhy234",
    *               "name": "Mayuri",
    *               "createdAt": "2020-04-01T16:56:26.688Z",
    *               "updatedAt": "2020-04-01T16:56:26.688Z"
@@ -86,7 +86,7 @@ public getAllUsers(req: express.Request, res: express.Response, next: express.Ne
  * @apiParam {Number} id Users unique ID.
  *  
  * @apiSuccess {String} name  Name  of the User.
- * @apiSuccess {Number} mobile  Mobile Number of the User.
+ * @apiSuccess {Number} deviceId  deviceId Number of the User.
  * @apiSuccess {String} health  Health  of the User.
  * @apiSuccess {Array} geolocation   Geolocation of the User.
  * @apiSuccess {String} notificationtoken  Notificationtoken of the User.
@@ -101,7 +101,7 @@ public getAllUsers(req: express.Request, res: express.Response, next: express.Ne
  *                "coordinates":[1,2]
  *             }, 
  *             "_id": "5e84c96f34edaed699dfde8c",
- *             "mobile": "9999999999",
+ *             "deviceId": "aegrwa123",
  *             "name": "Abhay",
  *             "health": "sick",
  *             "createdAt": "2020-04-01T17:03:43.480Z",
@@ -145,7 +145,7 @@ public getUser(req: express.Request, res: express.Response, next: express.NextFu
  * @apiParam {Number} id Users unique ID.
  *
  *       {
- *             "mobile": "9999999999",
+ *             "deviceId": "asgda123",
  *             "name": "Abhay",
  *             "geolocation": {
  *                "type": "Point",
@@ -178,7 +178,6 @@ public updateUser(req: express.Request, res: express.Response, next: express.Nex
     
   let payload = UserValidation.validatePutRequest(req.body);
   if (payload) {
-    console.log("req.body",req.body);
     UserModel.update(req.params,req.body)
     .then((update) => {
         res.status(200).json({ success: true });
@@ -203,12 +202,12 @@ public updateUser(req: express.Request, res: express.Response, next: express.Nex
  *
  * @apiParam {Number} id Users unique ID.
  *
- * @apiSuccess {Number} mobile Mobile number of user.
+ * @apiSuccess {Number} deviceId deviceId number of user.
  * @apiSuccess {String} name Name of user.
  *
  * @apiParamExample {json} Request-Example
  *         {
- *            "mobile": "9945362788",
+ *            "deviceId": "asfgdfsa112",
  *	          "name": "sagar"
  *         }
  * 
@@ -217,7 +216,7 @@ public updateUser(req: express.Request, res: express.Response, next: express.Nex
  *            "_id": "5e8ac99e3a397520b0fb0d21",
  *            "invitedTo":[],
  *            "geolocation":{ "coordinates":[]  },
- *            "mobile": "9945362788",
+ *            "deviceId": "aefqawef122",
  *            "name": "vaibhav",
  *            "health": "fine",
  *            "createdAt": "2020-04-06T06:18:06.835Z",
@@ -240,14 +239,14 @@ public createUser(req: express.Request, res: express.Response, next: express.Nex
 
   if(createPayload){
       UserModel
-        .findOne({mobile: req.body.mobile}).lean()
+        .findOne({deviceId: req.body.deviceId}).lean()
         .then(data=>{
             if(data){
               res.status(200).json({ data });
             }else{
               UserModel
               .create({
-                mobile: req.body.mobile,
+                deviceId: req.body.deviceId,
                 name: req.body.name,
                 health: 'fine'
               })

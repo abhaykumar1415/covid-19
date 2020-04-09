@@ -21,6 +21,9 @@ export interface IUserModel extends Document {
 const UserSchema: Schema = new Schema({
     mobile: {
         type: String,
+    },
+    deviceId: {
+        type: String,
         required: true
     },
     name: {

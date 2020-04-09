@@ -243,12 +243,14 @@ public createUser(req: express.Request, res: express.Response, next: express.Nex
         .then(data=>{
             if(data){
               res.status(200).json({ data });
-            }else{
+            } else{
+              let JWT = Auth.createJWTtoken(req.body.deviceId);
               UserModel
               .create({
                 deviceId: req.body.deviceId,
                 name: req.body.name,
-                health: 'fine'
+                health: 'fine',
+                JWTtoken: JWT
               })
               .then((data) => {
                 res.status(200).json({ data });

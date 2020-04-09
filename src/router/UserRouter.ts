@@ -1,5 +1,6 @@
 import UserController from '../controllers/Users';
 import { Router } from 'express';
+import Auth from "../services/JwtToken";
 /**
  * @export
  * @class UserRouter
@@ -16,9 +17,9 @@ export default class UserRouter {
      * @memberof UserRouter
      */
     public routes(): void {
-        this.router.get('/', UserController.getAllUsers);
+        this.router.get('/', Auth.verifyRequestAuth, UserController.getAllUsers);
         this.router.post('/',  UserController.createUser);
-        this.router.put('/:_id',  UserController.updateUser);
-        this.router.get('/:_id', UserController.getUser);
+        this.router.put('/:_id',Auth.verifyRequestAuth,  UserController.updateUser);
+        this.router.get('/:_id',Auth.verifyRequestAuth, UserController.getUser);
     }
 }

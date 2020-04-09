@@ -11,7 +11,12 @@ class UserController {
    * @apiGroup User
    *
    * @apiParam {Number} id Users unique ID.
+   * @apiHeader {String} access-key Users unique access-key.
    *
+   * @apiHeaderExample {json} Header-Example:
+   *     {
+   *       "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZpY2VJZCI6InlvbG8xMjM0IiwiaWF0IjoxNTg2NDMzMDI5fQ.ZYJNDMG5n-g8NpY7TbbMG2KfBu6gYroDPvH_xJkLcwk"
+   *     }
    * @apiSuccess {String} name  Name  of the User.
    * @apiSuccess {Number} deviceId  deviceId Number of the User.
    * @apiSuccess {String} health  Health  of the User.
@@ -34,7 +39,7 @@ class UserController {
    *               "name": "Abhay",
    *               "createdAt": "2020-04-01T17:03:43.480Z",
    *               "updatedAt": "2020-04-02T12:29:30.976Z",
-   *               "JWTtoken": "fdgbdshjkjhngfv",
+   *               "JWTWTtoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZpY2VJZCI6InlvbG8xMjM0IiwiaWF0IjoxNTg2NDMzMDI5fQ.ZYJNDMG5n-g8NpY7TbbMG2KfBu6gYroDPvH_xJkLcwk",
    *               "notificationtoken": "asdfgjhgfdbnyuhg",
    *               "health": "sick"
    *           }
@@ -49,7 +54,7 @@ class UserController {
    *               "name": "Mayuri",
    *               "createdAt": "2020-04-01T16:56:26.688Z",
    *               "updatedAt": "2020-04-01T16:56:26.688Z"
-   *               "JWTtoken": "asdvgfdgrhds",
+   *               "JWTWTtoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZpY2VJZCI6InlvbG8xMjM0IiwiaWF0IjoxNTg2NDMzMDI5fQ.ZYJNDMG5n-g8NpY7TbbMG2KfBu6gYroDPvH_xJkLcwk",
    *               "notificationtoken": "agesaderthfdf",
    *               "health": "Fine"
    *           }
@@ -82,7 +87,12 @@ public getAllUsers(req: express.Request, res: express.Response, next: express.Ne
  *@api {get} /users/:_id Get one User
  * @apiName Get one User
  * @apiGroup User
+ * @apiHeader {String} access-key Users unique access-key.
  *
+ * @apiHeaderExample {json} Header-Example:
+ *     {
+ *       "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZpY2VJZCI6InlvbG8xMjM0IiwiaWF0IjoxNTg2NDMzMDI5fQ.ZYJNDMG5n-g8NpY7TbbMG2KfBu6gYroDPvH_xJkLcwk"
+ *     }
  * @apiParam {Number} id Users unique ID.
  *  
  * @apiSuccess {String} name  Name  of the User.
@@ -106,7 +116,7 @@ public getAllUsers(req: express.Request, res: express.Response, next: express.Ne
  *             "health": "sick",
  *             "createdAt": "2020-04-01T17:03:43.480Z",
  *             "updatedAt": "2020-04-02T12:21:55.626Z",
- *             "JWTtoken": "fdgbdshjkjhngfv",
+ *             "JWTWTtoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZpY2VJZCI6InlvbG8xMjM0IiwiaWF0IjoxNTg2NDMzMDI5fQ.ZYJNDMG5n-g8NpY7TbbMG2KfBu6gYroDPvH_xJkLcwk",
  *             "notificationtoken": "asdfgjhgfdbnyuhg"
  *         }
  *@apiError UserNotFound The id of the User was not found.
@@ -140,7 +150,12 @@ public getUser(req: express.Request, res: express.Response, next: express.NextFu
  * @api {put} /users/:_id Update one User
  * @apiName Update one User
  * @apiGroup User
+ * @apiHeader {String} access-key Users unique access-key.
  *
+ * @apiHeaderExample {json} Header-Example:
+ *     {
+ *       "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZpY2VJZCI6InlvbG8xMjM0IiwiaWF0IjoxNTg2NDMzMDI5fQ.ZYJNDMG5n-g8NpY7TbbMG2KfBu6gYroDPvH_xJkLcwk"
+ *     }
  * 
  * @apiParam {Number} id Users unique ID.
  *
@@ -153,7 +168,7 @@ public getUser(req: express.Request, res: express.Response, next: express.NextFu
  *             },
  *             "health": "sick",
  *             "notificationtoken":"asdfgjhgfdbnyuhg",
- *             "JWTtoken":"fdgbdshjkjhngfv"
+ *             "JWTWTtoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZpY2VJZCI6InlvbG8xMjM0IiwiaWF0IjoxNTg2NDMzMDI5fQ.ZYJNDMG5n-g8NpY7TbbMG2KfBu6gYroDPvH_xJkLcwk",
  *       }
  *
  * @apiSuccess {String} success Success true status for update.
@@ -216,9 +231,10 @@ public updateUser(req: express.Request, res: express.Response, next: express.Nex
  *            "_id": "5e8ac99e3a397520b0fb0d21",
  *            "invitedTo":[],
  *            "geolocation":{ "coordinates":[]  },
- *            "deviceId": "aefqawef122",
+ *            "deviceId": "asfgdfsa112",
  *            "name": "vaibhav",
  *            "health": "fine",
+ *            "JWTWTtoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZpY2VJZCI6InlvbG8xMjM0IiwiaWF0IjoxNTg2NDMzMDI5fQ.ZYJNDMG5n-g8NpY7TbbMG2KfBu6gYroDPvH_xJkLcwk",
  *            "createdAt": "2020-04-06T06:18:06.835Z",
  *            "updatedAt": "2020-04-06T06:18:06.835Z"
  *      } 

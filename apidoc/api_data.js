@@ -316,7 +316,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Responce:",
-          "content": "{\n      \"_id\": \"5e8ac99e3a397520b0fb0d21\",\n      \"invitedTo\":[],\n      \"geolocation\":{ \"coordinates\":[]  },\n      \"deviceId\": \"asfgdfsa112\",\n      \"name\": \"vaibhav\",\n      \"health\": \"fine\",\n      \"JWTWTtoken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZpY2VJZCI6InlvbG8xMjM0IiwiaWF0IjoxNTg2NDMzMDI5fQ.ZYJNDMG5n-g8NpY7TbbMG2KfBu6gYroDPvH_xJkLcwk\",\n      \"createdAt\": \"2020-04-06T06:18:06.835Z\",\n      \"updatedAt\": \"2020-04-06T06:18:06.835Z\"\n}",
+          "content": "{\n      \"_id\": \"5e8ac99e3a397520b0fb0d21\",\n      \"invitedTo\":[],\n      \"geolocation\":{ \"coordinates\":[]  },\n      \"deviceId\": \"asfgdfsa112\",\n      \"name\": \"vaibhav\",\n      \"health\": \"fine\",\n      \"JWTtoken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZpY2VJZCI6InlvbG8xMjM0IiwiaWF0IjoxNTg2NDMzMDI5fQ.ZYJNDMG5n-g8NpY7TbbMG2KfBu6gYroDPvH_xJkLcwk\",\n      \"createdAt\": \"2020-04-06T06:18:06.835Z\",\n      \"updatedAt\": \"2020-04-06T06:18:06.835Z\"\n}",
           "type": "json"
         }
       ]
@@ -433,7 +433,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n[\n      {\n          \"invitedTo\": [],\n        \"geolocation\": {\n           \"type\": \"Point\",\n           \"coordinates\":[1,2]\n        },  \n          \"_id\": \"5e84c96f34edaed699dfde8c\",\n          \"deviceId\": \"dthjgj123\",\n          \"name\": \"Abhay\",\n          \"createdAt\": \"2020-04-01T17:03:43.480Z\",\n          \"updatedAt\": \"2020-04-02T12:29:30.976Z\",\n          \"JWTWTtoken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZpY2VJZCI6InlvbG8xMjM0IiwiaWF0IjoxNTg2NDMzMDI5fQ.ZYJNDMG5n-g8NpY7TbbMG2KfBu6gYroDPvH_xJkLcwk\",\n          \"notificationtoken\": \"asdfgjhgfdbnyuhg\",\n          \"health\": \"sick\"\n      }\n      {\n          \"invitedTo\": [],\n        \"geolocation\": {\n           \"type\": \"Point\",\n           \"coordinates\":[3,4]\n        }, \n         \"_id\": \"5e84c7bae5f9a6d653759b02\",\n          \"deviceId\": \"dfghjhhy234\",\n          \"name\": \"Mayuri\",\n          \"createdAt\": \"2020-04-01T16:56:26.688Z\",\n          \"updatedAt\": \"2020-04-01T16:56:26.688Z\"\n          \"JWTWTtoken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZpY2VJZCI6InlvbG8xMjM0IiwiaWF0IjoxNTg2NDMzMDI5fQ.ZYJNDMG5n-g8NpY7TbbMG2KfBu6gYroDPvH_xJkLcwk\",\n          \"notificationtoken\": \"agesaderthfdf\",\n          \"health\": \"Fine\"\n      }\n  ]",
+          "content": "HTTP/1.1 200 OK\n[\n      {\n          \"invitedTo\": [],\n        \"geolocation\": {\n           \"type\": \"Point\",\n           \"coordinates\":[1,2]\n        },  \n          \"_id\": \"5e84c96f34edaed699dfde8c\",\n          \"deviceId\": \"dthjgj123\",\n          \"name\": \"Abhay\",\n          \"createdAt\": \"2020-04-01T17:03:43.480Z\",\n          \"updatedAt\": \"2020-04-02T12:29:30.976Z\",\n          \"JWTtoken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZpY2VJZCI6InlvbG8xMjM0IiwiaWF0IjoxNTg2NDMzMDI5fQ.ZYJNDMG5n-g8NpY7TbbMG2KfBu6gYroDPvH_xJkLcwk\",\n          \"notificationtoken\": \"asdfgjhgfdbnyuhg\",\n          \"health\": \"sick\"\n      }\n      {\n          \"invitedTo\": [],\n        \"geolocation\": {\n           \"type\": \"Point\",\n           \"coordinates\":[3,4]\n        }, \n         \"_id\": \"5e84c7bae5f9a6d653759b02\",\n          \"deviceId\": \"dfghjhhy234\",\n          \"name\": \"Mayuri\",\n          \"createdAt\": \"2020-04-01T16:56:26.688Z\",\n          \"updatedAt\": \"2020-04-01T16:56:26.688Z\"\n          \"JWTtoken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZpY2VJZCI6InlvbG8xMjM0IiwiaWF0IjoxNTg2NDMzMDI5fQ.ZYJNDMG5n-g8NpY7TbbMG2KfBu6gYroDPvH_xJkLcwk\",\n          \"notificationtoken\": \"agesaderthfdf\",\n          \"health\": \"Fine\"\n      }\n  ]",
           "type": "json"
         }
       ]
@@ -550,7 +550,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n    {\n        \"invitedTo\":[],\n        \"geolocation\": {\n           \"type\": \"Point\",\n           \"coordinates\":[1,2]\n        }, \n        \"_id\": \"5e84c96f34edaed699dfde8c\",\n        \"deviceId\": \"aegrwa123\",\n        \"name\": \"Abhay\",\n        \"health\": \"sick\",\n        \"createdAt\": \"2020-04-01T17:03:43.480Z\",\n        \"updatedAt\": \"2020-04-02T12:21:55.626Z\",\n        \"JWTWTtoken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZpY2VJZCI6InlvbG8xMjM0IiwiaWF0IjoxNTg2NDMzMDI5fQ.ZYJNDMG5n-g8NpY7TbbMG2KfBu6gYroDPvH_xJkLcwk\",\n        \"notificationtoken\": \"asdfgjhgfdbnyuhg\"\n    }",
+          "content": "HTTP/1.1 200 OK\n    {\n        \"invitedTo\":[],\n        \"geolocation\": {\n           \"type\": \"Point\",\n           \"coordinates\":[1,2]\n        }, \n        \"_id\": \"5e84c96f34edaed699dfde8c\",\n        \"deviceId\": \"aegrwa123\",\n        \"name\": \"Abhay\",\n        \"health\": \"sick\",\n        \"createdAt\": \"2020-04-01T17:03:43.480Z\",\n        \"updatedAt\": \"2020-04-02T12:21:55.626Z\",\n        \"JWTtoken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZpY2VJZCI6InlvbG8xMjM0IiwiaWF0IjoxNTg2NDMzMDI5fQ.ZYJNDMG5n-g8NpY7TbbMG2KfBu6gYroDPvH_xJkLcwk\",\n        \"notificationtoken\": \"asdfgjhgfdbnyuhg\"\n    }",
           "type": "json"
         }
       ]
@@ -612,7 +612,7 @@ define({ "api": [
             "type": "Number",
             "optional": false,
             "field": "id",
-            "description": "<p>Users unique ID.</p> <pre><code>  {         &quot;deviceId&quot;: &quot;asgda123&quot;,         &quot;name&quot;: &quot;Abhay&quot;,         &quot;geolocation&quot;: {            &quot;type&quot;: &quot;Point&quot;,            &quot;coordinates&quot;:[1,2]         },         &quot;health&quot;: &quot;sick&quot;,         &quot;notificationtoken&quot;:&quot;asdfgjhgfdbnyuhg&quot;,         &quot;JWTWTtoken&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZpY2VJZCI6InlvbG8xMjM0IiwiaWF0IjoxNTg2NDMzMDI5fQ.ZYJNDMG5n-g8NpY7TbbMG2KfBu6gYroDPvH_xJkLcwk&quot;,   }</code></pre>"
+            "description": "<p>Users unique ID.</p> <pre><code>  {         &quot;deviceId&quot;: &quot;asgda123&quot;,         &quot;name&quot;: &quot;Abhay&quot;,         &quot;geolocation&quot;: {            &quot;type&quot;: &quot;Point&quot;,            &quot;coordinates&quot;:[1,2]         },         &quot;health&quot;: &quot;sick&quot;,         &quot;notificationtoken&quot;:&quot;asdfgjhgfdbnyuhg&quot;,         &quot;JWTtoken&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXZpY2VJZCI6InlvbG8xMjM0IiwiaWF0IjoxNTg2NDMzMDI5fQ.ZYJNDMG5n-g8NpY7TbbMG2KfBu6gYroDPvH_xJkLcwk&quot;,   }</code></pre>"
           }
         ]
       }
